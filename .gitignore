@@ -15,17 +15,31 @@
 /vendor/
 
 # Assets and user uploads
-/web/bundles/
-/web/uploads/
-
-# PHPUnit
-/phpunit.xml
+/public/bundles/
+/public/uploads/
 
 # Build data
 /build/
 
 # Entités
-!**/Entity/*~
+# !**/Entity/*~
+
+# Backup
+/dump/*
+/marelle/*
 
 # Embedded web-server pid file
 /.web-server-pid
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+###< symfony/framework-bundle ###
+
+###> symfony/phpunit-bridge ###
+.phpunit
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
