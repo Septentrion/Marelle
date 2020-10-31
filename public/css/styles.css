@@ -1,0 +1,26 @@
+.catalog {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.author {
+    background-color: #DFEAEE;
+    padding: 10px;
+    margin: 10px;
+}
+
+.work {
+    list-style: none
+}
+
+.work .category {
+    color: #777
+}
+
+.work .category:before {
+    content: '['
+}
+
+.work .category:after {
+    content: ']'
+}
