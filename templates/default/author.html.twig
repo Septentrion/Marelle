@@ -1,0 +1,11 @@
+<article class="author">
+    <h2 class="name">{{ author['name'] }}</h2>
+    <ul class="works">
+        {% for w in author['works'] %}
+            <li class="work">
+                <span class="title">{{ w['title'] }}</span>
+                <span class="category">{{ w['category'] }}</span>
+            </li>
+        {% endfor %}
+    </ul>
+</article>
