@@ -1,12 +1,39 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    flex-grow: 1;
+}
+
+main {
+    flex-grow: 5;    
+}
+
+footer {
+    color: #CCC;
+    background-color: #333;
+    flex-grow: 1;
+    padding: 10px
+}
 .catalog {
     display: flex;
     flex-wrap: wrap;
 }
 
 .author {
-    background-color: #DFEAEE;
+    background-color: #C8E7F3;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px 1px #EEE;
     padding: 10px;
-    margin: 10px;
+    margin: 20px;
+    width: 25vw
+}
+
+.author .name {
+    color: #320f91;
 }
 
 .work {
@@ -19,6 +46,10 @@
 
 .work .category:before {
     content: '['
+}
+
+.work .title {
+    color: #33F    
 }
 
 .work .category:after {
