@@ -14,7 +14,7 @@
     <h1>Catalogue des auteurs</h1>
 
     {% for author in authors %}
-        {% include 'default/catalog.html.twig' with {'author': author} %}
+        {% include 'default/author.html.twig' with {'author': author} %}
     {% endfor %}
 </section>
 {% endblock %}
