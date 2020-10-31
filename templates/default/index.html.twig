@@ -1,13 +1,17 @@
+{# Les blocs définis dans de fragment iront s'insérer dans les blocs de même nom défnis dans la page appelée par l'instruction `extends`. Cette hiérarchie peut-être d'une profonceur arbitraire. #}
 {% extends 'base.html.twig' %}
 
 {% block title %}Affichage d'une liste d'auteurs{% endblock %}
 
 {% block stylesheets %}
+    {# La fonction `asset` permet de charger un fichier dans un sous-dossier du dossier 'public', qui est a priori le seul dossier accessible par le navigateur vec des reuqêtes HTTP. #}
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
 {% endblock %}
 
 {% block header %}
-    <h1>Bibliothèque de Babel</h1>
+    {# Normalement le conttenu du bloc parent est _effacé_ par celui du bloc enfant. L'instruction `parent` permet d'agréger les deux. #}
+    {{ parent() }}
+    <p class="exergue">Tous les matins du monde</p>
 {% endblock %}
 
 {% block main %}
@@ -15,9 +19,11 @@
     <h1>Catalogue des auteurs</h1>
 
     <section class="catalog">
-    {% for author in authors %}
-        {% include 'default/author.html.twig' with {'author': author} %}
-    {% endfor %}
+        {# Une boucle qui itère sur la variable `authors` qui a été définie dans la classe DefaultController #}
+        {% for author in authors %}
+            {# Inclusion d'un fragment dont le rôle est d'afficher un bloc d'information sur un auteur. On remarque que le chemin ets toujours relatif à la racine du dossier `templates`. Ce template requiert lui aussi une variable. #}
+            {% include 'default/author.html.twig' with {'author': author} %}
+        {% endfor %}
     </section>
 </section>
 {% endblock %}
