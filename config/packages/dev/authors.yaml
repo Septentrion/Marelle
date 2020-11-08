@@ -1,0 +1,58 @@
+parameters:
+    authors:
+        vhugo:
+            name: 'Victor Hugo'
+            lang: 'fr'
+            works:
+                - {title: 'Notre-Dame de Paris', category: 'roman'}
+                - {title: 'Les Contemplations', category: 'poésie'}
+                - {title: 'Les Misérables', category: 'roman'}
+
+        tmann:
+            name: 'Thomas Mann'
+            lang: 'de'
+            works:
+                - {title: 'Doktor Faustus', category: 'roman'}
+                - {title: 'Les Buddenbrock', category: 'roman'}
+        wshakespeare:
+            name: 'William Shakespeare'
+            lang: 'en'
+            works:
+                - {title: 'Le roi Lear', category: 'théâtre'}
+                - {title: 'Les Sonnets', category: 'poésie'}
+        frabelais:
+            name: 'François Rabelais'
+            lang: 'fr'
+            works:
+                - {title: 'Le Tiers-Livre', category: 'roman'}
+                - {title: 'Le Quart-Livre', category: 'roman'}
+        platon:
+            name: 'Platon'
+            lang: 'el'
+            works:
+                - {title: 'La République', category: 'essai'}
+                - {title: 'Le Timée', category: 'essai'}
+        vwoolf:
+            name: 'Virginia Woolf'
+            lang: 'en'
+            works:
+                - {title: 'Ms Dalloway', category: 'théâtre'}
+        fdostoiesvsky:
+            name: 'Fiodor Dostoïevsky'
+            lang: 'ru'
+            works:
+                - {title: 'Les Frères Karamazov', category: 'roman'}
+                - {title: 'L‘idiot', category: 'roman'}
+        ykawabata:
+            name: 'Kawabata Yasunari'
+            lang: 'jp'
+            works:
+                - {title: 'Pays de neige', category: 'roman'}
+                - {title: 'Tristesse et beauté', category: 'roman'}
+                - {title: 'La danseuse d‘Izu', category: 'nouvelle'}
+        borges:
+            name: 'Jorge Luis Borges'
+            lang: 'es'
+            works:
+                - { title: 'L‘aleph', category: 'nouvelle' }
+                - { title: 'La biliothèque de Babel', category: 'nouvelle' }

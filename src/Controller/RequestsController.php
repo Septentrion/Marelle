@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
@@ -48,7 +49,7 @@ class RequestsController extends AbstractController
     ];
 
     /**
-     * Affiche la liste auteurs
+     * Affiche la liste des auteurs
      *
      * @Template("default/index.html.twig")
      * @Route("/authors", name="authors_list")
@@ -165,6 +166,7 @@ class RequestsController extends AbstractController
     /**
      * Une requête secondaire qui affiche des informations contextuelles.
      * Ici, par exemple, les auteurs de même langue que celui affiché.
+     * Ce contrôleur n'est pas associé à une route, car il n'est peut-être pas destiné à être appelé isolément
      *
      * @param string $lang
      * @return string
@@ -176,5 +178,57 @@ class RequestsController extends AbstractController
         return $this->render('default/fragments/contextual_fragment.html.twig', ['authors' => $authors]);
     }
 
+    /**
+     * Variation sur l'exemple précédent, illustrant l'utilisation de l'objet de type Request produit par le routeur.
+     * Nous voyons aussi un exemple d'injection de dépendance : les méthodes des contrôleurs admettent des paramètres
+     *   arbitraires, en nombre et en type.
+     *
+     * @param Request $request
+     * @return Response
+     *
+     * @Template("default/index.html.twig")
+     * @Route("/authors/filter", name="authors_list_filtered")
+     */
+    public function authorsByLanguage(Request $request) : array
+    {
+        /*
+         * Nous voulons récupérer un paramètre correspondant à la langue.
+         * Contrairement aux cas précédents, cettevaleur n'est pas intégrée dans l'URL, mais dans la « chaîne de requête »
+         * On utilisera cela pour les paramètres optionnels ou annexes du point de vue de la structure de la route.
+         * Ces valeurs n'étant pas dans l'URL, nous devons accéder à l'objet Request (construit par le routeur) pour les lire.
+         * L'URL aurait donc pour forme :
+         * http://<chemin>/public/index.php/authors/filter?lang=fr
+         *
+         * Nous utilisons ici la coalescence de l'opérateur ternaire pour simplifier l'écriture.
+         */
+        $lang = $request->query->get('lang') ?? 'fr';
+        $authors = array_filter(self::AUTHORS, function ($author) use ($lang) { return $lang == $author['lang']; });
+
+        return [
+            'authors' => $authors,
+        ];
+    }
+
+    /**
+     * Affiche la liste des auteurs, représentée comme une constante de configuration
+     *
+     * @Template("default/index.html.twig")
+     * @Route("/authors/external", name="authors_external")
+     */
+    public function importedAuthors(): array
+    {
+        return [
+            /*
+             * Plutôt que de stocker notre catalogue sous forme de tableau PHP, nous pouvons le déporter
+             * dans un fichier de configuration, à l'intérieur du dossier `config`.
+             * En l'occurrence, un fichier ad hoc a été créé : /config/dev/authors.yaml
+             * (dans l'environnement `dev` car nous n'en n'aurions plus besoin en cas de déploiement de l'application)
+             * Les constantes doivent être déclarées dans une section `parameters`
+             *
+             * Tous les contrôleurs peuvent lire les constantes de configuration grâce à la méthode `getParameter`
+             */
+            'authors' => $this->getParameter('authors'),
+        ];
+    }
 }
 
