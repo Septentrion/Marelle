@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Lato;
+    height: 100vh;
+    margin: 0;
+}
+
+header {
+    flex-grow: 1;
+    background-color: gold;
+    margin: 0;
+    padding: 0 20px;
+}
+
+main {
+    display: flex;
+    flex-grow: 5;
+    padding: 0 20px;
+}
+
+main > section {
+    flex-grow: 6;
+}
+
+main > aside {
+    flex-grow: 1;
+}
+footer {
+    color: #CCC;
+    background-color: #333;
+    flex-grow: 1;
+    padding: 10px;
+    padding: 0 20px;
+}
+.catalog {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.author {
+    background-color: #C8E7F3;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px 1px #EEE;
+    padding: 10px;
+    margin: 20px;
+    width: 25vw
+}
+
+.author .name {
+    color: #320f91;
+}
+
+.work {
+    list-style: none
+}
+
+.work .category {
+    color: #777
+}
+
+.work .category:before {
+    content: '['
+}
+
+.work .title {
+    color: #33F    
+}
+
+.work .category:after {
+    content: ']'
+}

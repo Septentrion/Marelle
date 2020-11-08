@@ -3,10 +3,27 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        {# Un `block` et un emplacement prévu pour afficher du contenu relatif à une ressource. Ici, par exemple, des feuilles de style. #}
         {% block stylesheets %}{% endblock %}
+        {% block javascripts %}{% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <header>
+            {# Un `block` avec du contenu. Celui-ci peut être considéré comme uncntenu “par défaut” #}
+            {% block header %}
+                <h1>Bibliothèque de Babel</h1>
+            {% endblock %}
+        </header>
+        <main>
+            <section>
+                {% block main %}{% endblock %}
+            </section>
+            <aside>
+                {% block aside %}{% endblock %}
+            </aside>
+        </main>
+        <footer>
+            {% block footer %}{% endblock %}
+        </footer>
     </body>
 </html>

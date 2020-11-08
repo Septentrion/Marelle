@@ -43,3 +43,11 @@
 .phpunit.result.cache
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
+
+# IDE
+/.idea
+
+# Composer
+/composer.lock
+/symfony.lock
+
