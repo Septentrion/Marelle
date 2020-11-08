@@ -14,3 +14,6 @@ Ceci est un travail en cours, qui sera revu et augmenté progressivement.
 | PremierePage | Création d'une page d'exemple : mise en œuvre du cyle des requêtes et syntaxe deTwig |
 | RequetesEtReponses | Syntaxe des routes, utilsation de Request, différents types de réponses (Response) |
 
+## Démonstration
+
+L'application peut être consultée [sur ce serveur](http://51.255.174.234/glenda/public/index.php)
