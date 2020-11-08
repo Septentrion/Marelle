@@ -221,7 +221,7 @@ class RequestsController extends AbstractController
             /*
              * Plutôt que de stocker notre catalogue sous forme de tableau PHP, nous pouvons le déporter
              * dans un fichier de configuration, à l'intérieur du dossier `config`.
-             * En l'occurrence, un fichier ad hoc a été créé : /config/dev/authors.yaml
+             * En l'occurrence, un fichier ad hoc a été créé : /config/packages/dev/authors.yaml
              * (dans l'environnement `dev` car nous n'en n'aurions plus besoin en cas de déploiement de l'application)
              * Les constantes doivent être déclarées dans une section `parameters`
              *
