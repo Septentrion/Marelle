@@ -1,0 +1,7 @@
+{# Chque auteur défini dans `Defaultcontroller` est un tableau. On peut manipuler ceux-ci dans Twig selon la même logique que dans PHP. #}
+<section class="related-authors">
+    {% for author in authors %}
+        <h2 class="name">{{ author['name'] }}</h2>
+        <p>{{ author['works'] | length }} livres en réserve</p>
+    {% endfor %}
+</section>

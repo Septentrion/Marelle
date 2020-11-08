@@ -22,7 +22,7 @@
         {# Une boucle qui itère sur la variable `authors` qui a été définie dans la classe DefaultController #}
         {% for author in authors %}
             {# Inclusion d'un fragment dont le rôle est d'afficher un bloc d'information sur un auteur. On remarque que le chemin ets toujours relatif à la racine du dossier `templates`. Ce template requiert lui aussi une variable. #}
-            {% include 'default/author.html.twig' with {'author': author} %}
+            {% include 'default/fragments/author_fragment.html.twig' with {'author': author} %}
         {% endfor %}
     </section>
 </section>
