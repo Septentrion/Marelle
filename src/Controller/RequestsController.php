@@ -43,7 +43,7 @@ class RequestsController extends AbstractController
         ]
         ],
         [ 'name' => 'Virginia Woolf', 'lang' => 'en', 'works' => [
-            ['title' => 'Ms Dalloway', "category" => 'théâtre'],
+            ['title' => 'Mrs Dalloway', "category" => 'théâtre'],
         ]
         ],
     ];

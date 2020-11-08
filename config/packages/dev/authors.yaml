@@ -36,7 +36,7 @@ parameters:
             name: 'Virginia Woolf'
             lang: 'en'
             works:
-                - {title: 'Ms Dalloway', category: 'théâtre'}
+                - {title: 'Mrs Dalloway', category: 'théâtre'}
         fdostoiesvsky:
             name: 'Fiodor Dostoïevsky'
             lang: 'ru'
